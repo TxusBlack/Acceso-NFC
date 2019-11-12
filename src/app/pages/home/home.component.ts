@@ -21,8 +21,9 @@ export class HomeComponent implements OnInit {
     this.nfcCard = await this.nfcServices.listen();
   }
 
-  clean() {
+  async clean() {
     this.nfcCard = null;
+    await this.nfcServices.cleanNfc();
   }
 
 }

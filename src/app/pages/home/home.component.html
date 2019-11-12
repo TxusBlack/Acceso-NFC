@@ -14,8 +14,8 @@
       </div>
       <p *ngIf="nfcCard">El código de la tarjeta es: {{nfcCard?.message}}</p>
       <button type="button" block="true" mdbBtn color="light" mdbWavesEffect (click)="readCard()" *ngIf="!nfcCard || nfcCard?.message === 'No hay datos'">Obtener UID tarjeta</button>
-      <button type="button" block="true" mdbBtn color="primary" mdbWavesEffect *ngIf="nfcCard" class="mt-4">Registrar tarjeta</button>
-      <button type="button" block="true" mdbBtn color="danger" mdbWavesEffect *ngIf="nfcCard" class="mt-4" (click)="clean()">Limpiar dato tarjeta</button>
+      <button type="button" block="true" mdbBtn color="primary" mdbWavesEffect *ngIf="nfcCard && nfcCard?.message !== 'No hay datos'" class="mt-4">Registrar tarjeta</button>
+      <button type="button" block="true" mdbBtn color="danger" mdbWavesEffect *ngIf="nfcCard && nfcCard?.message !== 'No hay datos'" class="mt-4" (click)="clean()">Limpiar dato tarjeta</button>
     </div>
   </div>
 </div>

@@ -17,4 +17,11 @@ export class NfcService {
       resolve(res);
     });
   }
+
+  cleanNfc() {
+    return new Promise(async resolve => {
+      await this.http.get('http://localhost:3000/clean').toPromise();
+      resolve();
+    });
+  }
 }

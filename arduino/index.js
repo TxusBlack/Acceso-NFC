@@ -25,7 +25,7 @@ port.on('open', () => {
 });
 
 // Express.js
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   if (dataPlaca) {
     res.status(200).json({
       message: dataPlaca
@@ -35,6 +35,11 @@ app.get('/', function (req, res) {
       message: 'No hay datos'
     });
   }
+});
+
+app.get('/clean', (req, res) => {
+  dataPlaca = null;
+  res.status(200);
 });
 
 app.listen(3000, function () {
