@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HomeComponent } from './pages/home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [],

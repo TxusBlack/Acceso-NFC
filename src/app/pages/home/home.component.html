@@ -2,6 +2,20 @@
   <mdb-navbar-brand><a class="navbar-brand" routerLink="/home" routerLinkActive="active">Sistema de Control de Acceso a UNISANGIL mediante tarjetas NFC</a></mdb-navbar-brand>
 </mdb-navbar>
 
-<div class="container">
-  <p>Home</p>
+<div class="container p-2">
+  <h1 class="text-center">Registrar</h1>
+  <div class="card">
+    <div class="card-body">
+      <div class="md-form">
+        <input type="text" id="name" class="form-control" placeholder="Nombres y Apellidos">
+      </div>
+      <div class="md-form">
+        <input type="text" id="cc" class="form-control" placeholder="Cédula">
+      </div>
+      <p *ngIf="nfcCard">El código de la tarjeta es: {{nfcCard?.message}}</p>
+      <button type="button" block="true" mdbBtn color="light" mdbWavesEffect (click)="readCard()" *ngIf="!nfcCard || nfcCard?.message === 'No hay datos'">Obtener UID tarjeta</button>
+      <button type="button" block="true" mdbBtn color="primary" mdbWavesEffect *ngIf="nfcCard" class="mt-4">Registrar tarjeta</button>
+      <button type="button" block="true" mdbBtn color="danger" mdbWavesEffect *ngIf="nfcCard" class="mt-4" (click)="clean()">Limpiar dato tarjeta</button>
+    </div>
+  </div>
 </div>

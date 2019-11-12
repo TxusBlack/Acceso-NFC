@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NfcService } from 'src/app/services/nfc.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public nfcCard: any;
+
+  constructor(
+    private nfcServices: NfcService
+  ) { }
 
   ngOnInit() {
+  }
+
+  async readCard() {
+    this.nfcCard = await this.nfcServices.listen();
+  }
+
+  clean() {
+    this.nfcCard = null;
   }
 
 }
